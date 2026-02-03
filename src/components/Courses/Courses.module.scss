@@ -1,0 +1,330 @@
+// course grid item styles
+
+.coursesContainer {
+  margin-top: var(--spacing-3xl);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  
+  .courses {
+    padding: var(--spacing-3xl) var(--spacing-md);
+
+    h2 {
+      font-size: var(--fs-h2);
+      margin-bottom: var(--spacing-2xl);
+      font-weight: 700;
+      text-align: center;
+      color: #2c2c2c;
+      
+      span {
+        color: #a43853;
+      }
+    }
+
+  .cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-2xl);
+    justify-items: center;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    max-width: 380px;
+    width: 100%;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      border-color: #a43853;
+    }
+
+    img {
+      width: 100%;
+      height: clamp(160px, 20vw, 220px);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .info {
+      padding: var(--spacing-xl);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+      .duration {
+        font-size: var(--fs-small);
+        color: #888;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-sm);
+        font-weight: 500;
+        background: #f8f9fa;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: 20px;
+        width: fit-content;
+
+        i {
+          color: #a43853;
+          font-size: 0.9em;
+        }
+      }
+
+      h3 {
+        font-size: var(--fs-h4);
+        margin-bottom: var(--spacing-sm);
+        font-weight: 600;
+        color: #2c2c2c;
+        line-height: 1.4;
+        flex-grow: 1;
+      }
+
+      .desc {
+        font-size: var(--fs-body);
+        color: #666;
+        margin-bottom: var(--spacing-lg);
+        line-height: 1.6;
+        flex-grow: 1;
+      }
+
+      .readMore {
+        background: linear-gradient(135deg, #a43853 0%, #8a2e47 100%);
+        color: #fff;
+        padding: var(--spacing-sm) var(--spacing-xl);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: var(--fs-body);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(164, 56, 83, 0.3);
+        
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        
+        &:hover {
+          background: linear-gradient(135deg, #8a2e47 0%, #6b1f36 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(164, 56, 83, 0.4);
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+}
+
+// Media Queries
+// Extra Large Desktop (1920px+)
+@media (min-width: 1920px) {
+  .coursesContainer {
+    max-width: 1600px;
+    .courses {
+      padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+    .cardGrid {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--spacing-3xl);
+    }
+  }
+}
+
+// Large Desktop
+@media (max-width: 1600px) {
+  .coursesContainer {
+    max-width: 1300px;
+    .cardGrid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+}
+
+// Small Desktop
+@media (max-width: 1440px) {
+  .coursesContainer {
+    .cardGrid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-xl);
+    }
+  }
+}
+
+// Desktop
+@media (max-width: 1200px) {
+  .coursesContainer {
+    margin-top: var(--spacing-2xl);
+    .courses {
+      padding: var(--spacing-2xl) var(--spacing-md);
+    }
+    .cardGrid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    .card {
+      max-width: 100%;
+      img {
+        height: 180px;
+      }
+    }
+  }
+}
+
+// Tablet Landscape
+@media (max-width: 1024px) {
+  .coursesContainer {
+    margin-top: var(--spacing-xl);
+    .courses {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+    .cardGrid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    .card {
+      img {
+        height: 170px;
+      }
+      .info {
+        padding: var(--spacing-lg);
+        .duration {
+          margin-bottom: var(--spacing-xs);
+        }
+        h3 {
+          margin-bottom: var(--spacing-xs);
+        }
+        .desc {
+          margin-bottom: var(--spacing-md);
+        }
+        .readMore {
+          padding: var(--spacing-sm) var(--spacing-lg);
+        }
+      }
+    }
+  }
+}
+
+// Tablet Portrait
+@media (max-width: 768px) {
+  .coursesContainer {
+    margin-top: var(--spacing-lg);
+    .courses {
+      padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    .cardGrid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-md);
+    }
+    .card {
+      img {
+        height: 160px;
+      }
+      .info {
+        padding: var(--spacing-md);
+      }
+    }
+  }
+}
+
+// Mobile Landscape
+@media (max-width: 600px) {
+  .coursesContainer {
+    .cardGrid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// Mobile Portrait
+@media (max-width: 480px) {
+  .coursesContainer {
+    margin-top: var(--spacing-md);
+    .courses {
+      padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    .cardGrid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+      max-width: 350px;
+      margin: 0 auto;
+    }
+    .card {
+      border-radius: 12px;
+      img {
+        height: 160px;
+      }
+      .info {
+        padding: var(--spacing-md);
+        .duration {
+          gap: var(--spacing-xs);
+          margin-bottom: var(--spacing-xs);
+          padding: var(--spacing-xs) var(--spacing-sm);
+        }
+        h3 {
+          margin-bottom: var(--spacing-xs);
+          font-weight: 500;
+        }
+        .desc {
+          margin-bottom: var(--spacing-sm);
+          line-height: 1.4;
+        }
+        .readMore {
+          padding: var(--spacing-sm) var(--spacing-md);
+          font-weight: 500;
+          border-radius: 6px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Small Mobile
+@media (max-width: 360px) {
+  .coursesContainer {
+    margin-top: var(--spacing-sm);
+    .courses {
+      padding: var(--spacing-md) var(--spacing-xs);
+    }
+    .cardGrid {
+      gap: var(--spacing-sm);
+      max-width: 300px;
+    }
+    .card {
+      img {
+        height: 140px;
+      }
+      .info {
+        padding: var(--spacing-sm);
+        .duration {
+          padding: 2px var(--spacing-xs);
+        }
+        .readMore {
+          padding: var(--spacing-xs) var(--spacing-sm);
+        }
+      }
+    }
+  }
+}

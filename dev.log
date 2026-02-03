@@ -1,0 +1,53 @@
+
+> translam-wesbite@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Warning: Found multiple lockfiles. Selecting /Users/atulteotia/package-lock.json.
+   Consider removing the lockfiles at:
+   * /Users/atulteotia/Desktop/transl/translam-all-websites/package-lock.json
+
+   ▲ Next.js 15.4.1 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://172.16.0.161:3000
+
+ ✓ Starting...
+ ✓ Ready in 962ms
+ ○ Compiling /admin/placement ...
+ ✓ Compiled /admin/placement in 1525ms
+ GET /admin/placement 200 in 1753ms
+ GET /admin/placement 200 in 98ms
+ ✓ Compiled /_not-found/page in 147ms
+ GET /admin/'https:/fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap 404 in 208ms
+ ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+ GET /images/placement-hero.jpg 404 in 77ms
+ ⨯ The requested resource isn't a valid image for /images/placement-hero.jpg received text/html; charset=utf-8
+ ✓ Compiled /favicon.ico in 135ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 398ms
+ ○ Compiling /placement ...
+ ✓ Compiled /placement in 1089ms
+ GET /placement 200 in 1195ms
+ GET /images/placement-hero.jpg 404 in 84ms
+ GET /'https:/fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap 404 in 97ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 257ms
+ ✓ Compiled /admin/data-migration in 167ms
+ GET /admin/data-migration 200 in 228ms
+ GET /admin/'https:/fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap 404 in 88ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 249ms
+ GET /images/placement-hero.jpg 404 in 66ms
+ ⨯ The requested resource isn't a valid image for /images/placement-hero.jpg received text/html; charset=utf-8
+ GET /placement 200 in 116ms
+ GET /images/placement-hero.jpg 404 in 95ms
+ GET /'https:/fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap 404 in 94ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 246ms
+ GET /placement 200 in 115ms
+ GET /images/placement-hero.jpg 404 in 96ms
+ GET /'https:/fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap 404 in 90ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 250ms
+ GET /placement 200 in 121ms
+ GET /images/placement-hero.jpg 404 in 87ms
+ GET /'https:/fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap 404 in 97ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 250ms
+ GET /placement 200 in 124ms
+ GET /images/placement-hero.jpg 404 in 116ms
+ GET /'https:/fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap 404 in 109ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 258ms

@@ -1,0 +1,580 @@
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 10px 20px;
+  position: sticky;
+  top: 0;
+  transition: box-shadow 0.2s;
+  z-index: 999;
+}
+
+/* Optional: add smooth shadow on scroll */
+.header.scrollHeader {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #111;
+  width: 280px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.bar,
+.barOpen {
+  width: 28px;
+  height: 3px;
+  background: #8a5a66;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.barOpen {
+  background: #5c3740;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav ul {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #8a5a66;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.nav ul li a:hover {
+  color: #5c3740;
+}
+
+.loginBtn {
+  background: #8a5a66;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: background 0.2s;
+}
+
+.loginBtn:hover {
+  background: #5c3740;
+}
+
+.navMobile {
+  display: none;
+}
+
+.loginBtnContainer {
+  display: none;
+}
+
+// dropdown styles
+
+/* Base header styles (keep your existing ones here) */
+
+.dropdown {
+  position: relative;
+  font-size: 14px;
+  top: 2px;
+  .dropdownToggle {
+    cursor: pointer;
+    display: block;
+    user-select: none;
+    color: #8a5a66;
+  }
+
+  .dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 200px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+
+    li {
+      position: relative;
+      white-space: nowrap;
+      border-bottom: 1px solid #ccc;
+      font-size: 14px;
+
+      span {
+        cursor: pointer;
+        display: block;
+        padding: 10px 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        padding: 10px 10px;
+        font-size: 14px;
+
+        &:hover {
+          background: #f0f0f0;
+          color: #8a5a66;
+        }
+      }
+    }
+  }
+
+  .submenuParent {
+    position: relative;
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background: #fff;
+      min-width: 180px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+
+      li {
+        white-space: nowrap;
+        border-bottom: 1px solid #ccc;
+
+        a {
+          color: #333;
+          text-decoration: none;
+          font-size: 14px !important;
+
+          &:hover {
+            color: #8a5a66;
+          }
+        }
+      }
+    }
+  }
+
+  .show {
+    display: block !important;
+  }
+}
+// Media Queries
+// Large Desktop
+@media (max-width: 1600px) {
+  .container {
+    max-width: 1250px;
+  }
+}
+
+// Desktop
+@media (max-width: 1200px) {
+  .header {
+    padding: 16px 30px 10px 30px;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .nav ul {
+    gap: 24px;
+  }
+
+  .nav ul li a {
+    font-size: 0.95rem;
+  }
+}
+
+// Tablet
+@media (max-width: 1024px) {
+  .header {
+    padding: 14px 24px 10px 24px;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .nav ul {
+    gap: 20px;
+  }
+
+  .loginBtn {
+    padding: 8px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+
+// Small Tablet
+@media (max-width: 1024px) {
+  .loginBtn {
+    display: none;
+  }
+
+  .loginBtnContainer {
+    display: block;
+
+    .loginBtn {
+      display: block;
+    }
+  }
+
+  .header {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    width: 35px;
+    height: 35px;
+  }
+
+  .bar,
+  .barOpen {
+    width: 25px;
+    height: 2.5px;
+    margin: 3px 0;
+  }
+
+ 
+
+  .navMobile {
+    display: flex;
+    position: fixed;
+    top:  0;
+    left: 0;
+    right: 0;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .navMobile ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .navMobile ul li {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: none !important;
+  }
+
+  .navMobile ul li:last-child {
+    border-bottom: none;
+  }
+
+  .navMobile ul li a {
+    font-size: 1.05rem;
+    color: #8a5a66;
+    display: block;
+    padding: 5px 20px;
+  }
+
+  .navMobile .loginBtn {
+    margin: 20px 0;
+  }
+
+  .hamburger {
+    color: #8a5a66;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: auto;
+    padding-right: 25px;
+    font-size: 30px;
+  }
+
+  // Mobile dropdown styles
+  .dropdown {
+    width: 100%;
+
+    .dropdownToggle {
+      cursor: pointer;
+      display: block;
+      user-select: none;
+      color: #8a5a66;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      text-align: center;
+      width: 100%;
+      -webkit-tap-highlight-color: transparent;
+
+      &:active {
+        background: #f0f0f0;
+      }
+    }
+
+    .dropdownMenu {
+      position: static;
+      box-shadow: none;
+      border: none;
+      background: #f9f9f9;
+      margin-top: 10px;
+      border-radius: 8px;
+      width: 100%;
+
+      li {
+        border-bottom: 1px solid #e0e0e0;
+
+        a,
+        span {
+          padding: 12px 30px;
+          font-size: 0.95rem;
+          display: block;
+          cursor: pointer;
+          -webkit-tap-highlight-color: transparent;
+
+          &:active {
+            background: #e8e8e8;
+          }
+        }
+
+        span {
+          color: #8a5a66;
+          font-weight: 500;
+          text-align: left;
+        }
+      }
+    }
+
+    .submenuParent {
+      width: 100%;
+
+      >span {
+        cursor: pointer;
+        display: block;
+        padding: 12px 30px;
+        font-size: 0.95rem;
+        color: #8a5a66;
+        font-weight: 500;
+        -webkit-tap-highlight-color: transparent;
+
+        &:active {
+          background: #e8e8e8;
+        }
+      }
+
+      .submenu {
+        position: static;
+        margin-left: 20px;
+        margin-top: 5px;
+        box-shadow: none;
+        border: none;
+        background: #f5f5f5;
+        border-radius: 6px;
+        width: calc(100% - 20px);
+        list-style: none;
+
+        li {
+          border-bottom: 1px solid #e8e8e8;
+
+          a {
+            padding: 10px 20px;
+            font-size: 0.9rem !important;
+            display: block;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+
+            &:active {
+              background: #e0e0e0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    width: 200px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bar,
+  .barOpen {
+    width: 22px;
+    height: 2px;
+    margin: 2.5px 0;
+  }
+
+  .navMobile {
+    top: 0;
+  }
+
+  .navMobile ul {
+    padding: 15px 0;
+  }
+
+  .navMobile ul li {
+    padding: 10px 0;
+  }
+
+  .navMobile ul li a {
+    font-size: 1rem;
+    padding: 5px 15px;
+  }
+
+  .loginBtn {
+    padding: 8px 24px;
+    font-size: 0.9rem;
+    border-radius: 18px;
+  }
+
+  .navMobile .loginBtn {
+    margin: 15px 0;
+  }
+
+  // Enhanced mobile dropdown styles for small screens
+  .dropdown {
+    .dropdownToggle {
+      padding: 10px 15px;
+      font-size: 1rem;
+    }
+
+    .dropdownMenu {
+      margin-top: 8px;
+
+      li {
+
+        a,
+        span {
+          padding: 10px 25px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .submenuParent {
+      >span {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+      }
+
+      .submenu {
+        margin-left: 15px;
+        width: calc(100% - 15px);
+
+        li a {
+          padding: 8px 15px;
+          font-size: 0.85rem !important;
+        }
+      }
+    }
+  }
+}
+
+.scrollHeader {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+
+
+
+
+// 
+.marqueeContainer{
+  width: 100%;
+  overflow: hidden;
+  background: #5c3740;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  position: relative;
+  z-index: 9;
+}
+
+.active {
+  color: #8a5a66 !important;
+  border-bottom: 2px solid #8a5a66 !important;
+  box-shadow: 0 2px 8px rgba(138, 90, 102, 0.08);
+}
+
+.nav ul li.active a,
+.nav ul li a.active {
+  font-weight: 600;
+}
+
+.dropdownMenu li.active a,
+.dropdownMenu li a.active {
+  font-weight: 600;
+}
+
+.submenu li.active a,
+.submenu li a.active {
+  font-weight: 600;
+}

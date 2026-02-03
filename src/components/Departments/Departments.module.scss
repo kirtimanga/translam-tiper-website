@@ -1,0 +1,53 @@
+.departments {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  // gap: 2rem;
+  padding: 2rem;
+  background: #f9fafc;
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+ margin-bottom: 40px;
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #000;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #000;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+    color: #5c3740;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #000;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+}

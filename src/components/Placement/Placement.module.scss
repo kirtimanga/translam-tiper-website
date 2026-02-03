@@ -1,0 +1,172 @@
+// styles/About/CorporateResourceCenter.module.scss
+
+.crcSection {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  h2 {
+    color: #000;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+    span{
+     color: #a43853;
+    }
+  }
+    p {
+      margin-bottom: 20px;
+      font-size: 16px; 
+  }
+  h3{
+    margin-bottom: 20px;
+  }
+  ul{
+    padding-left: 15px;
+    margin-bottom: 20px;
+    li{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// placement section styles
+
+.placementsSection {
+  text-align: center;
+  margin: 50px 0 100px 0;
+}
+.placementsTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.placementsTitle span {
+  color: #8a5a66;
+}
+
+.placementsDesc {
+  color: #888;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+
+.placementsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  justify-content: center;
+  margin: 40px auto 0;
+  max-width: 900px;
+}
+
+.placementCard {
+  background: #e6e6f7;
+  border: 2.5px solid #8a5a66;
+  border-radius: 16px;
+  padding: 24px 0 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+.placementImg {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.placementName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.placementCompany {
+  font-size: 1rem;
+  color: #444;
+}
+
+// Tablet responsiveness
+@media (max-width: 1024px) {
+  .crcSection {
+    padding: 24px 8px;
+    h2 {
+      font-size: 1.2rem;
+    }
+    p {
+      font-size: 0.98rem;
+    }
+  }
+
+  .placementsSection {
+    margin: 60px 20px;
+  }
+
+  .placementsTitle {
+    font-size: 1.4rem;
+  }
+
+  .placementsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .placementCard {
+    padding: 20px 0 10px;
+  }
+
+  .placementImg {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 600px) {
+  .crcSection {
+    padding: 10px 2px;
+    h2 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.92rem;
+    }
+    ul {
+      padding-left: 6px;
+      li {
+        font-size: 0.92rem;
+      }
+    }
+  }
+}
+
+
+@media(max-width:480px){
+  .placementsSection {
+    margin: 40px 15px;
+  }
+
+  .placementsTitle {
+    font-size: 1.2rem;
+  }
+
+  .placementsDesc {
+    font-size: 0.95rem;
+  }
+
+  .placementName {
+    font-size: 1rem;
+  }
+
+  .placementCompany {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,49 @@
+.visionSection {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  color: #444;
+
+  // Tablet responsiveness
+  @media (max-width: 1024px) {
+    padding: 2rem 1rem;
+  }
+
+  // Mobile responsiveness
+  @media (max-width: 600px) {
+    padding: 1rem 0.2rem;
+  }
+}
+
+.quote {
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-style: italic;
+  color: #222;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+
+  strong {
+    font-weight: 700;
+  }
+
+  // Tablet responsiveness
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+
+  // Mobile responsiveness
+  @media (max-width: 600px) {
+    font-size: 0.95rem;
+  }
+}
+
+.visionSection p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  font-size: 1rem;
+
+  // Mobile responsiveness
+  @media (max-width: 600px) {
+    font-size: 0.95rem;
+  }
+}

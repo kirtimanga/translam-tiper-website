@@ -1,0 +1,279 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* @apply bg-gray-50 text-gray-800; */
+  font-family: 'Poppins', sans-serif;
+  /* background-color: #000; */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #fcfcfc;
+  line-height: 1.7;
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+  height: 100%;
+}
+
+h2{
+  font-size: 2rem;
+  font-weight: 600;;
+}
+
+h3{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+h4{
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Alert animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive Typography Scale */
+:root {
+  --fs-h1: 2.5rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.5rem;
+  --fs-h4: 1.25rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+}
+
+/* Media Queries */
+/* Extra Large Desktop (1920px+) */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1800px;
+    padding: 0 40px;
+  }
+  :root {
+    --fs-h1: 3rem;
+    --fs-h2: 2.5rem;
+    --fs-h3: 1.875rem;
+    --fs-h4: 1.5rem;
+    --fs-body: 1.125rem;
+  }
+}
+
+/* Large Desktop */
+@media (max-width: 1600px) {
+  .container {
+    max-width: 1400px;
+    padding: 0 32px;
+  }
+  :root {
+    --fs-h1: 2.75rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.75rem;
+    --fs-h4: 1.375rem;
+    --fs-body: 1.0625rem;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 24px;
+  }
+}
+
+/* Small Desktop */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 24px;
+  }
+  :root {
+    --fs-h1: 2.25rem;
+    --fs-h2: 1.875rem;
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.25rem;
+    --fs-body: 1rem;
+    --spacing-3xl: 3rem;
+  }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  :root {
+    --fs-h1: 2rem;
+    --fs-h2: 1.75rem;
+    --fs-h3: 1.375rem;
+    --fs-h4: 1.125rem;
+    --fs-body: 1rem;
+    --spacing-2xl: 2.5rem;
+    --spacing-3xl: 2.5rem;
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  :root {
+    --fs-h1: 1.75rem;
+    --fs-h2: 1.5rem;
+    --fs-h3: 1.25rem;
+    --fs-h4: 1.125rem;
+    --fs-body: 0.9375rem;
+    --spacing-lg: 1.25rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+  body {
+    font-size: var(--fs-body);
+  }
+}
+
+/* Large Mobile */
+@media (max-width: 600px) {
+  :root {
+    --fs-h1: 1.625rem;
+    --fs-h2: 1.375rem;
+    --fs-h3: 1.125rem;
+    --fs-h4: 1rem;
+    --fs-body: 0.9375rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  :root {
+    --fs-h1: 1.5rem;
+    --fs-h2: 1.25rem;
+    --fs-h3: 1.125rem;
+    --fs-h4: 1rem;
+    --fs-body: 0.875rem;
+    --fs-small: 0.8125rem;
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.25rem;
+    --spacing-2xl: 1.5rem;
+    --spacing-3xl: 2rem;
+  }
+  body {
+    font-size: var(--fs-body);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 10px;
+  }
+  :root {
+    --fs-h1: 1.375rem;
+    --fs-h2: 1.125rem;
+    --fs-h3: 1rem;
+    --fs-h4: 0.9375rem;
+    --fs-body: 0.8125rem;
+    --fs-small: 0.75rem;
+  }
+}
+
+/* Apply responsive font sizes */
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+}
+
+/* Responsive image sizing */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive spacing utilities */
+.p-responsive {
+  padding: var(--spacing-md);
+}
+
+.m-responsive {
+  margin: var(--spacing-md);
+}
+
+.py-responsive {
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+.px-responsive {
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+
+/* Hides the Next.js N-dev icon */
+#__next-route-announcer,
+nextjs-portal {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}

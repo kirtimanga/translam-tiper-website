@@ -1,0 +1,93 @@
+.directorSection {
+  background: #ffffff;
+  padding: 4rem 2rem;
+  color: #333;
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+hr {
+  margin-bottom: 1.5rem;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+p {
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.quote {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #8a5a66;
+  margin-bottom: 20px;
+  span {
+    color: #8a5a66;
+  }
+}
+
+.signatureBlock {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  div {
+    min-width: 200px;
+    font-size: 1rem;
+
+    strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    span {
+      color: #666;
+    }
+  }
+}
+
+ul{
+  margin: 20px 20px;
+  li{
+    margin-bottom: 10px;
+  }
+}
+}
+
+// Tablet responsiveness
+@media (max-width: 1024px) {
+  .directorSection {
+    padding: 2rem 1rem;
+    h2 {
+      font-size: 1.3rem;
+    }
+    .signatureBlock {
+      gap: 1rem;
+    }
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 600px) {
+  .directorSection {
+    padding: 1rem 0.2rem;
+    h2 {
+      font-size: 1.1rem;
+    }
+    .signatureBlock {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    p, .quote {
+      font-size: 0.95rem;
+    }
+  }
+}
