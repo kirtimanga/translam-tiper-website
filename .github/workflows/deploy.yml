@@ -2,7 +2,8 @@ name: Deploy TIPER Website
 
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - prod
   workflow_dispatch:
 
 jobs:
