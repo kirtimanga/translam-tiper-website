@@ -125,7 +125,7 @@ function Header() {
                 <ul className={`${styles.dropdownMenu} ${openDropdown === "aboutUs" ? styles.show : ""}`}>
                   <li className={pathname === '/about' ? styles.active : ''}><Link href="/about">About Group</Link></li>
                   <li className={pathname === '/philosophy' ? styles.active : ''}><Link href="/philosophy">Our Philosophy</Link></li>
-                  <li className={pathname === '/principle-message' ? styles.active : ''}><Link href="/principle-message">Principle Message</Link></li>
+                  <li className={pathname === '/principle-message' ? styles.active : ''}><Link href="/principle-message">Director General</Link></li>
                 </ul>
               </li>
              

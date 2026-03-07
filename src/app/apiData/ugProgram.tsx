@@ -7,10 +7,10 @@ export const ugProgram = [
   duration: '2 Years',
   fees: '76000 /- per year + Examination Fee as per university notification + Registration Fee',
   overview:
-    'The M.Pharm program at Translam is a two-year postgraduate degree focused on advanced pharmaceutical sciences, research methodologies, and specialized training. It equips students with expertise in areas such as pharmacology, pharmaceutics, pharmaceutical chemistry, and clinical pharmacy, preparing them for leadership roles in academia, research, and industry.',
+    'The M.Pharm program at Translam is a two-year postgraduate degree focused on advanced pharmaceutical sciences, research methodologies, and specialized training. It equips students with expertise in areas such as pharmacology, pharmaceutics, pharmaceutical chemistry, and pharma cognosy, preparing them for leadership roles in academia, research, and industry.',
   highlights: [
     'Advanced study in pharmacology, pharmaceutics, and pharmaceutical chemistry.',
-    'Specializations available in key areas like Clinical Pharmacy, Pharmacognosy, and Pharmaceutical Analysis.',
+    'Specializations available in key areas like Pharma Cognosy, Pharmacognosy, and Pharmaceutical Analysis.',
     'Research-driven curriculum with thesis and dissertation work.',
     'Exposure to regulatory practices, drug development, and quality assurance.'
   ],

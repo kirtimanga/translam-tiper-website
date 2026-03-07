@@ -129,58 +129,40 @@ export default function EventsPage() {
     {
       name: "Department of Pharmaceutical Chemistry",
      description: `
-     <h3>U.V. Spectrophotometer</h3>
+     <p>Department of Pharmaceutical Chemistry is a core academic and research unit focusing on the design, synthesis, and analysis of drugs. It bridges chemistry and biology, covering areas like medicinal chemistry, molecular modeling, and quality control. Key research includes developing new molecules for treating diseases and utilizing instruments like HPLC and IR spectrometers. </p>
+     <h3>Key Areas of Focus</h3>
      <p>
-      Ability to perform quantitative and qualitative analysis with high accuracy and sensitivity. 
-      It offers versatile measurement modes such as spectrum, quantitation, and time-course 
-      analysis.
+      <b>Drug Design and Discovery:</b> Using computational tools (computer-aided drug design - CADD) to design new molecules for conditions like cancer, antimicrobial resistance, and neurological disorders.
       </p>
-
-      <h3>Fluorimetry</h3>
 
       <p>
-      Fluorimetry is an analytical technique used to measure the intensity of fluorescence emitted 
-      by molecules after they absorb light. Key features include high sensitivity, high selectivity, 
-      specific analytical principles, and specialized instrumentation.
+     <b>Synthetic Chemistry:</b> Synthesis of active pharmaceutical ingredients (APIs), including green chemistry techniques.Key Courses and Curriculum
       </p>
-
-      <h3>High-Performance Liquid Chromatography (HPLC)</h3>
-
-      <p>
-      High-Performance Liquid Chromatography (HPLC) offers high resolution, accuracy, and 
-      sensitivity, enabling the separation and detection of a wide variety of compounds, including 
-      thermally unstable or non-volatile substances. Additional features include fast analysis 
-      speed, high separation efficiency, reproducibility, and the ability to automate processes for 
-      high-throughput analysis.
-      </p>
-
-      <h3>Calorimeter</h3>
-
-      <p>
-      A calorimeter includes an insulated container to prevent heat exchange, a reaction vessel to 
-      hold the sample or water, a thermometer to measure temperature changes, and a stirrer to 
-      ensure uniform temperature distribution.
-      </p>
-
-      <h3>Digital pH Meter</h3>
-
-      <p>Used extensively in:</p>
 
       <ul>
-        <li>Pharmaceuticals</li>
-        <li>Cosmetics</li>
-        <li>Manufacturing</li>
-        <li>Product formulation</li>
+        <li>Pharmaceutical Organic & Inorganic Chemistry</li>
+        <li>Medicinal Chemistry</li>
+        <li>Biochemistry</li>
+        <li>Instrumental Methods of Analysis</li>
+        <li>Stereochemistry</li>
+      </ul>
+      <h3>Facilities and Research</h3>
+      <p>Departments are typically equipped with advanced instrumentation for research, including: </p>
+      <ul>
+        <li>High-Performance Liquid Chromatography (HPLC)</li>
+        <li>UV-Vis Spectrophotometers</li>
+        <li>IR Spectrometers</li>
+        <li>Computer-Aided Drug Design labs</li>
+      </ul>
+      <h3>Career Opportunities</h3>
+      <p>Graduates from these departments are prepared for roles in: </p>
+      <ul>
+        <li>Pharmaceutical Industry (R&D, Quality Control, Regulatory Affairs)</li>
+        <li>Academia</li>
+        <li>Drug discovery research</li>
       </ul>
 
-      <h3>F.T.I.R. Spectrometer</h3>
-
-      <p>
-      FTIR spectrometers use a <strong>Michelson interferometer</strong> to collect all infrared frequencies 
-      simultaneously, enabling fast and non-destructive analysis. These instruments offer high 
-      sensitivity, speed, and resolution, and are suitable for a wide range of sample types (solid, 
-      liquid, gas). They produce a unique fingerprint spectrum for accurate identification.
-      </p>`,
+      `,
       research: []
     },
   ];
