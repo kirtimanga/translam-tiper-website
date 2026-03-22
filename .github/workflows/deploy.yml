@@ -50,8 +50,8 @@ jobs:
           npm run build
           
           echo "🔄 Restarting PM2 processes..."
-          pm2 restart tiper-backend --update-env
-          pm2 restart tiper-frontend --update-env
+          pm2 restart translam-admin --update-env
+          pm2 restart translam-tiper-website-frontend --update-env
           
           echo "✅ TIPER Website deployment completed successfully!"
-          pm2 list | grep tiper
+          pm2 list | grep -E "translam-admin|translam-tiper"
