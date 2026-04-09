@@ -13,6 +13,8 @@ interface SmtpSettings {
   fromEmail: string;
   fromName: string;
   toEmail: string;
+  placementEmail: string;
+  alumniEmail: string;
   isActive: boolean;
 }
 
@@ -306,13 +308,13 @@ export default function SmtpManagement() {
 
           <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'block', marginBottom: '8px', color: '#374151', fontWeight: '500' }}>
-              To Email *
+              Admission Email *
             </label>
             <input
               type="email"
               value={smtpSettings?.toEmail || ''}
               onChange={(e) => handleInputChange('toEmail', e.target.value)}
-              placeholder="admin@translam.com"
+              placeholder="admission@translam.com"
               required
               style={{
                 width: '100%',
@@ -323,8 +325,54 @@ export default function SmtpManagement() {
               }}
             />
             <p style={{ marginTop: '4px', color: '#6b7280', fontSize: '13px' }}>
-              All emails will be sent to this email address
+              Admission enquiry & Contact Us form emails will be sent here
             </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div>
+              <label style={{ display: 'block', marginBottom: '8px', color: '#374151', fontWeight: '500' }}>
+                Placement Email
+              </label>
+              <input
+                type="email"
+                value={smtpSettings?.placementEmail || ''}
+                onChange={(e) => handleInputChange('placementEmail', e.target.value)}
+                placeholder="placement@translam.com"
+                style={{
+                  width: '100%',
+                  padding: '8px 12px',
+                  border: '1px solid #d1d5db',
+                  borderRadius: '6px',
+                  fontSize: '14px'
+                }}
+              />
+              <p style={{ marginTop: '4px', color: '#6b7280', fontSize: '13px' }}>
+                Placement form emails will be sent here
+              </p>
+            </div>
+
+            <div>
+              <label style={{ display: 'block', marginBottom: '8px', color: '#374151', fontWeight: '500' }}>
+                Alumni Email
+              </label>
+              <input
+                type="email"
+                value={smtpSettings?.alumniEmail || ''}
+                onChange={(e) => handleInputChange('alumniEmail', e.target.value)}
+                placeholder="alumni@translam.com"
+                style={{
+                  width: '100%',
+                  padding: '8px 12px',
+                  border: '1px solid #d1d5db',
+                  borderRadius: '6px',
+                  fontSize: '14px'
+                }}
+              />
+              <p style={{ marginTop: '4px', color: '#6b7280', fontSize: '13px' }}>
+                Alumni registration emails will be sent here
+              </p>
+            </div>
           </div>
 
           <div style={{ marginBottom: '16px' }}>

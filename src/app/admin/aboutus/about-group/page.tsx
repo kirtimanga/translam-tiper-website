@@ -165,36 +165,28 @@ export default function AboutGroupManagement() {
 
   const handleImageUpload = (field: string) => async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      
-      const reader = new FileReader();
-      reader.onloadend = async () => {
-        try {
-          const base64String = reader.result as string;
-          
-          // Check original size
-          const originalSizeKB = getImageSizeInKB(base64String);
-          console.log(`Original image size: ${originalSizeKB}KB`);
-          
-          // Compress image if it's larger than 100KB
-          let finalImage = base64String;
-          if (originalSizeKB > 100) {
-            showAlert('info', 'Compressing image...');
-            finalImage = await compressImage(base64String, 600, 0.6);
-            const compressedSizeKB = getImageSizeInKB(finalImage);
-            console.log(`Compressed image size: ${compressedSizeKB}KB`);
-          }
-          
-          setFormData({ ...formData, [field]: finalImage });
-        } catch (error) {
-          console.error('Error processing image:', error);
-          showAlert('error', 'Failed to process image. Please try again.');
-        }
-      };
-      reader.onerror = () => {
-        showAlert('error', 'Failed to read file. Please try again.');
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    try {
+      showAlert('info', 'Uploading image...');
+      const uploadData = new FormData();
+      uploadData.append('banner', file);
+
+      const res = await fetch('/api/upload-banner', {
+        method: 'POST',
+        body: uploadData,
+      });
+
+      if (res.ok) {
+        const result = await res.json();
+        setFormData({ ...formData, [field]: result.url });
+        showAlert('success', 'Image uploaded successfully!');
+      } else {
+        showAlert('error', 'Failed to upload image.');
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      showAlert('error', 'Failed to upload image. Please try again.');
     }
   };
 

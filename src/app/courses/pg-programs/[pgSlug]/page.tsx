@@ -24,10 +24,14 @@ export default function PgProgramDetail(props: unknown) {
 
   if (!course) return notFound();
 
+  const bannerMap: Record<string, string> = {
+    'm-pharmacy': '/images/m_pharm_banner.png',
+  };
+
   return (
     <>
       <Header />
-      <CommonBanner title={course.title} />
+      <CommonBanner title={course.title} imgSrc={bannerMap[params.pgSlug] || '/images/commonBanner.png'} />
 
       <section className={styles.articleContainer}>
         <div className='container'>
@@ -51,7 +55,6 @@ export default function PgProgramDetail(props: unknown) {
                     </div> */}
 
             <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold text-blue-900 mb-3">{course.title}</h2>
               <p className="text-gray-700 font-medium mb-2">Duration: {course.duration}</p>
               <p className="text-gray-600 mb-4">{course.overview}</p>
 

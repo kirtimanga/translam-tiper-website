@@ -47,7 +47,7 @@ app.get('/favicon.ico', (req, res) => {
 app.use('/api/auth', authRouter);
 app.use('/api', apiRoutes);
 
-sequelize.sync().then(async () => {
+sequelize.sync({ alter: true }).then(async () => {
   // Initialize admin table
   await createAdminTable();
   

@@ -122,6 +122,8 @@ const SmtpSettings = sequelize.define('SmtpSettings', {
   fromEmail: { type: DataTypes.STRING, allowNull: false },
   fromName: { type: DataTypes.STRING, defaultValue: 'Translam Institute' },
   toEmail: { type: DataTypes.STRING, allowNull: true },
+  placementEmail: { type: DataTypes.STRING, allowNull: true },
+  alumniEmail: { type: DataTypes.STRING, allowNull: true },
   isActive: { type: DataTypes.BOOLEAN, defaultValue: true }
 });
 

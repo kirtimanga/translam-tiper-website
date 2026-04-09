@@ -24,25 +24,17 @@ function DirectorDesk() {
                         dangerouslySetInnerHTML={{ __html: directorDeskData.content }}
                     />
 
-                    <div className={styles.signatureBlock}>
-                        {directorDeskData.staffMembers.map((member, index) => (
-                            <div key={index}>
-                                {member.image && (
-                                    <img 
-                                        src={member.image} 
-                                        alt={member.name}
-                                        style={{
-                                            width: '80px',
-                                            height: '80px',
-                                            borderRadius: '50%',
-                                            objectFit: 'cover',
-                                            marginBottom: '8px'
-                                        }}
-                                    />
-                                )}
-                                <strong>{member.name}</strong>
-                                <br />
-                                <span>{member.title}</span>
+
+                    <div className={styles.principalsGrid}>
+                        {[
+                            { name: 'Dr. Shamim Ahmed', designation: 'Director', image: '/images/dr-shamim-ahmed.jpg' },
+                            { name: 'Dr. Kamini Rajput', designation: 'Principal', image: '/images/dr-kamini-rajput.jpg' },
+                            { name: 'Dr. Krishan Pal Singh', designation: 'Principal', image: '/images/dr-krishan-pal-singh.jpg' },
+                        ].map((person, idx) => (
+                            <div className={styles.principalCard} key={idx}>
+                                <img src={person.image} alt={person.name} />
+                                <strong>{person.name}</strong>
+                                <span>{person.designation}</span>
                             </div>
                         ))}
                     </div>

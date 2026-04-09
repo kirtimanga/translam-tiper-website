@@ -16,6 +16,7 @@ function Header() {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null); // for multi-level
   const [shortNews, setShortNews] = useState<string[]>([]);
   const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +73,7 @@ function Header() {
   };
 
   return (
-    <header className={scrolled ? styles.scrollHeader : styles.stickyHeader}>
+    <header className={scrolled ? styles.scrollHeader : (isHome ? styles.transparentHeader : styles.stickyHeader)}>
 
       <div className={styles.marqueeContainer}>
         <div style={{backgroundColor:'rgb(139, 74, 74)', color: 'white', padding: '8px 0', fontSize: '14px'}}>

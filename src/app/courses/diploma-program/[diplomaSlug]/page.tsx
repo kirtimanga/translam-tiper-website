@@ -23,20 +23,20 @@ export default function DiplomaProgramDetail(props: unknown) {
 
   if (!course) return notFound();
 
+  const bannerMap: Record<string, string> = {
+    'd-pharma': '/images/d_pharm_banner.png',
+  };
+
   return (
     <>
      <Header />
-        <CommonBanner title={course.title} />
+        <CommonBanner title={course.title} imgSrc={bannerMap[params.diplomaSlug] || '/images/commonBanner.png'} />
           
             <section className={styles.articleContainer}>
                   <div className='container'>
                 <div className={styles.content}>
-                    <h1 className={styles.title}>
-                      {course.title}
-                    </h1>
-
                     <div className={styles.paragraphs}>
-                       <p><strong>Duration:</strong> {course.duration}</p> 
+                       <p><strong>Duration:</strong> {course.duration}</p>
                         <p>
                             {course.description}
                         </p>

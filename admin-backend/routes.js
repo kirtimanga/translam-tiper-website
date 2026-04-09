@@ -2421,6 +2421,50 @@ router.put('/documents/:documentId/toggle-active', async (req, res) => {
   }
 });
 
+// Placement Inquiry endpoint
+router.post('/placement-inquiry', async (req, res) => {
+  try {
+    const { name, email, phone, courseDepartment, message } = req.body;
+
+    if (!name || !email || !phone || !message) {
+      return res.status(400).json({ error: 'Name, email, phone, and message are required' });
+    }
+
+    const subject = `New Placement Inquiry from ${name}`;
+    const html = `
+      <h2>New Placement Inquiry</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      ${courseDepartment ? `<p><strong>Course/Department:</strong> ${courseDepartment}</p>` : ''}
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, '<br>')}</p>
+      <hr>
+      <p><small>This placement inquiry was submitted on ${new Date().toLocaleString()}</small></p>
+    `;
+
+    const emailResult = await EmailService.sendEmail({
+      subject,
+      html,
+      senderInfo: {
+        name,
+        email,
+        phone,
+        source: 'placement-form'
+      }
+    });
+
+    res.json({
+      success: true,
+      message: 'Your placement inquiry has been submitted successfully!',
+      emailSent: emailResult.success
+    });
+  } catch (error) {
+    console.error('Error submitting placement inquiry:', error);
+    res.status(500).json({ error: 'Failed to submit placement inquiry.' });
+  }
+});
+
 // Admission Form Submission endpoint
 router.post('/admission/submit', async (req, res) => {
   try {

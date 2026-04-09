@@ -23,10 +23,16 @@ export default function UgProgramDetail(props: unknown) {
 
   if (!course) return notFound();
 
+  const bannerMap: Record<string, string> = {
+    bpharm: '/images/b_pharm_banner.png',
+    mpharm: '/images/m_pharm_banner.png',
+    dpharm: '/images/d_pharm_banner.png',
+  };
+
   return (
     <>
      <Header />
-        <CommonBanner title={course.title} />
+        <CommonBanner title={course.title} imgSrc={bannerMap[params.ugSlug] || '/images/commonBanner.png'} />
           
             <section className={styles.articleContainer}>
                   <div className='container'>
@@ -43,7 +49,6 @@ export default function UgProgramDetail(props: unknown) {
                     </div> */}
 
                    <div className="w-full md:w-1/2">
-              <h2 className="">{course.titleFull}</h2>
               <p className=""><strong>Duration:</strong> {course.duration}</p>
               {/* <p className=""><strong>Fees:</strong> {course.fees}</p> */}
               <p className="text-gray-600 mb-4">{course.overview}</p>

@@ -1,6 +1,6 @@
 .directorSection {
   background: #ffffff;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   color: #333;
 
 h2 {
@@ -60,6 +60,41 @@ ul{
     margin-bottom: 10px;
   }
 }
+
+.principalsGrid {
+  display: flex;
+  gap: 40px;
+  margin-top: 2rem;
+}
+
+.principalCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  img {
+    width: 100%;
+    max-width: 200px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #8a5a66;
+    margin-bottom: 10px;
+  }
+
+  strong {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 2px;
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: #666;
+  }
+}
 }
 
 // Tablet responsiveness
@@ -72,6 +107,17 @@ ul{
     .signatureBlock {
       gap: 1rem;
     }
+  }
+}
+
+// Tablet responsiveness for principals
+@media (max-width: 768px) {
+  .principalsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .principalCard img {
+    height: 240px;
   }
 }
 
@@ -89,5 +135,13 @@ ul{
     p, .quote {
       font-size: 0.95rem;
     }
+  }
+  .principalsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .principalCard img {
+    height: 260px;
+    max-width: 220px;
   }
 }

@@ -1,18 +1,18 @@
 .aboutSection {
-  padding: var(--spacing-3xl) var(--spacing-md);
+  padding: var(--spacing-xl) var(--spacing-md);
   max-width: 1400px;
-  margin: var(--spacing-3xl) auto 0;
+  margin: var(--spacing-xl) auto 0;
   width: 100%;
 }
 
 .aboutBlock {
   display: flex;
   align-items: flex-start;
-  margin-bottom: var(--spacing-3xl);
-  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-lg);
   flex-wrap: wrap;
   border-bottom: 1px solid #e0e0e0;
-  padding-bottom: var(--spacing-3xl);
+  padding-bottom: var(--spacing-xl);
   &:first-child {
     display: block;
     text-align: center;

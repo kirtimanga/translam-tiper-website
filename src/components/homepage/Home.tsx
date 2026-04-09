@@ -5,6 +5,7 @@ import Footer from '../shared/Footer/Footer'
 import styles from './Home.module.scss'
 import Image from "next/image";
 import { motion } from 'framer-motion';
+import Marquee from 'react-fast-marquee';
 import { useSlider } from '@/contexts/SliderContext';
 import { useOurSuccess } from '@/contexts/OurSuccessContext';
 import { useOurInstitutions } from '@/contexts/OurInstitutionsContext';
@@ -12,6 +13,7 @@ import { useOurRecruiters } from '@/contexts/OurRecruitersContext';
 import { useWhyChooseUs } from '@/contexts/WhyChooseUsContext';
 import { useTestimonial } from '@/contexts/TestimonialContext';
 import { useOutstandingPlacements } from '@/contexts/OutstandingPlacementsContext';
+import AdmissionEnquiryPopup from '../shared/AdmissionEnquiryPopup/AdmissionEnquiryPopup';
 
 function fadeIn(delay = 0) {
   return {
@@ -31,6 +33,32 @@ function Home() {
   const { data: testimonialData, getActiveTestimonials } = useTestimonial();
   const { data: placementsData, getActivePlacements } = useOutstandingPlacements();
   
+  // Placement contact popup
+  const [showPlacementForm, setShowPlacementForm] = useState(false);
+  const [placementForm, setPlacementForm] = useState({ name: '', email: '', phone: '', courseDepartment: '', message: '' });
+  const [placementFormStatus, setPlacementFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const handlePlacementFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPlacementFormStatus('sending');
+    try {
+      const res = await fetch('/api/placement-inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(placementForm),
+      });
+      if (res.ok) {
+        setPlacementFormStatus('sent');
+        setPlacementForm({ name: '', email: '', phone: '', courseDepartment: '', message: '' });
+        setTimeout(() => { setShowPlacementForm(false); setPlacementFormStatus('idle'); }, 2000);
+      } else {
+        setPlacementFormStatus('error');
+      }
+    } catch {
+      setPlacementFormStatus('error');
+    }
+  };
+
   // Institutions interactive state
   const [activeInstitution, setActiveInstitution] = useState(1);
 
@@ -246,66 +274,26 @@ function Home() {
 
             <div className={styles.recruitersShowcase}>
               <motion.div
-                className={styles.featuredRecruiters}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <h3 className={styles.featuredTitle}>{ourRecruitersData.featuredTitle}</h3>
-                <div className={styles.featuredLogos}>
-                  {getFeaturedRecruiters().map((recruiter, index) => (
-                    <motion.div
-                      key={index}
-                      className={styles.featuredRecruiterCard}
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className={styles.featuredLogoWrap}>
+                <h3 className={styles.gridTitle}>All Partners</h3>
+                <div className={styles.partnersMarquee}>
+                  <Marquee speed={40} gradient={true} gradientWidth={60} pauseOnHover={true}>
+                    {[...getFeaturedRecruiters(), ...getActiveRecruiters().filter(r => !r.isFeatured)].map((recruiter, index) => (
+                      <div key={index} className={styles.marqueeLogoCard}>
                         <Image
                           src={recruiter.logo}
                           alt={recruiter.name}
-                          width={120}
-                          height={120}
-                          className={styles.featuredLogo}
+                          width={100}
+                          height={100}
+                          className={styles.marqueeLogo}
                         />
                       </div>
-                      <span className={styles.recruiterCategory}>{recruiter.category}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                className={styles.recruitersGrid}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                <h3 className={styles.gridTitle}>{ourRecruitersData.allPartnersTitle}</h3>
-                <div className={styles.recruitersLogosGrid}>
-                  {getActiveRecruiters().filter(r => !r.isFeatured).map((recruiter, index) => (
-                    <motion.div
-                      key={index}
-                      className={styles.gridRecruiterCard}
-                      whileHover={{
-                        scale: 1.05,
-                        rotate: [0, -1, 1, 0],
-                        boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Image
-                        src={recruiter.logo}
-                        alt={recruiter.name}
-                        width={80}
-                        height={80}
-                        className={styles.gridRecruiterLogo}
-                      />
-                    </motion.div>
-                  ))}
+                    ))}
+                  </Marquee>
                 </div>
               </motion.div>
             </div>
@@ -323,11 +311,64 @@ function Home() {
                 className={styles.placementBtn}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setShowPlacementForm(true)}
               >
-                {/* {ourRecruitersData.callToAction.buttonText} */}
-                <a href="/contact">Contact Placement Cell</a>
+                Contact Placement Cell
               </motion.button>
             </motion.div>
+
+            {showPlacementForm && (
+              <div className={styles.popupOverlay} onClick={() => setShowPlacementForm(false)}>
+                <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
+                  <button className={styles.popupClose} onClick={() => setShowPlacementForm(false)}>&times;</button>
+                  <h3 className={styles.popupTitle}>Contact Placement Cell</h3>
+                  <form onSubmit={handlePlacementFormSubmit} className={styles.popupForm}>
+                    <div className={styles.popupGridRow}>
+                      <input
+                        type="text"
+                        placeholder="Your Name *"
+                        required
+                        value={placementForm.name}
+                        onChange={(e) => setPlacementForm({ ...placementForm, name: e.target.value })}
+                      />
+                      <input
+                        type="email"
+                        placeholder="Email Address *"
+                        required
+                        value={placementForm.email}
+                        onChange={(e) => setPlacementForm({ ...placementForm, email: e.target.value })}
+                      />
+                    </div>
+                    <div className={styles.popupGridRow}>
+                      <input
+                        type="tel"
+                        placeholder="Phone Number *"
+                        required
+                        value={placementForm.phone}
+                        onChange={(e) => setPlacementForm({ ...placementForm, phone: e.target.value })}
+                      />
+                      <input
+                        type="text"
+                        placeholder="Course / Department"
+                        value={placementForm.courseDepartment}
+                        onChange={(e) => setPlacementForm({ ...placementForm, courseDepartment: e.target.value })}
+                      />
+                    </div>
+                    <textarea
+                      placeholder="Your Message *"
+                      required
+                      rows={2}
+                      value={placementForm.message}
+                      onChange={(e) => setPlacementForm({ ...placementForm, message: e.target.value })}
+                    />
+                    <button type="submit" disabled={placementFormStatus === 'sending'}>
+                      {placementFormStatus === 'sending' ? 'Sending...' : placementFormStatus === 'sent' ? 'Sent Successfully!' : 'Submit'}
+                    </button>
+                    {placementFormStatus === 'error' && <p className={styles.popupError}>Something went wrong. Please try again.</p>}
+                  </form>
+                </div>
+              </div>
+            )}
           </div>
         </motion.section>
 
@@ -344,7 +385,7 @@ function Home() {
               {whyChooseUsData.description && (
                 <div className={styles.whyChooseText}>
                   <div 
-                    style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', color: '#6b7280' }}
+                    style={{ textAlign: 'center', marginBottom: '10px', fontSize: '18px', color: '#6b7280' }}
                     dangerouslySetInnerHTML={{ __html: whyChooseUsData.description }}
                   />
                 </div>
@@ -496,6 +537,7 @@ function Home() {
 
       </main>
       <Footer />
+      <AdmissionEnquiryPopup autoOpen={true} autoOpenDelay={2000} />
     </>
   )
 }
