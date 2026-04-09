@@ -133,7 +133,7 @@ const Contact = () => {
 
   return (
   <>
-    <CommonBanner title="CONTACT US" imgSrc="/images/contact-us.webp" />
+    <CommonBanner title="CONTACT US" imgSrc={contactData.bannerImage ? `${BASE_URL}${contactData.bannerImage}` : "/images/commonBanner.png"} />
 
     <div className={styles.contactPage}>
     

@@ -13,8 +13,14 @@ class EmailService {
         throw new Error('No active SMTP configuration found');
       }
 
-      // Use toEmail from SMTP settings if available, otherwise use the provided 'to'
-      const recipientEmail = smtpSettings.toEmail || to;
+      // Route email based on source
+      let recipientEmail = smtpSettings.toEmail || to;
+      const source = senderInfo.source || '';
+      if (source === 'placement-form' && smtpSettings.placementEmail) {
+        recipientEmail = smtpSettings.placementEmail;
+      } else if (source === 'alumni-form' && smtpSettings.alumniEmail) {
+        recipientEmail = smtpSettings.alumniEmail;
+      }
 
       // Create email log entry
       emailLog = await EmailLog.create({

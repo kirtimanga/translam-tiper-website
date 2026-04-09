@@ -1,5 +1,5 @@
 .articleContainer {
-  padding: 4rem 2rem;
+  padding: 0 2rem 1rem;
   background-color: #f5faff;
   font-family: 'Segoe UI', sans-serif;
 }
@@ -93,7 +93,7 @@
 // Tablet responsiveness
 @media (max-width: 1024px) {
   .articleContainer {
-    padding: 2rem 1rem;
+    padding: 0 1rem 1rem;
   }
   .title {
     font-size: 1.3rem;
@@ -103,7 +103,7 @@
 // Mobile responsiveness
 @media (max-width: 600px) {
   .articleContainer {
-    padding: 1rem 0.2rem;
+    padding: 0 0.2rem 1rem;
   }
   .title {
     font-size: 1.1rem;

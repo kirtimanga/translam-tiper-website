@@ -530,6 +530,69 @@
   }
 }
 
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.transparentHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: box-shadow 0.2s, background 0.2s;
+
+  .header {
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    filter: brightness(0) invert(1);
+  }
+
+  .nav ul li a,
+  .dropdown .dropdownToggle {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .nav ul li a:hover,
+  .dropdown .dropdownToggle:hover {
+    color: #ddd;
+  }
+
+  .dropdown .dropdownMenu {
+    background: #fff;
+
+    li a {
+      color: #333;
+      font-weight: 400;
+    }
+
+    li a:hover {
+      color: #8a5a66;
+      background: #f0f0f0;
+    }
+  }
+
+  .loginBtn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .loginBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
 .scrollHeader {
   position: sticky;
   top: 0;

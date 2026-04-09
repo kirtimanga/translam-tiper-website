@@ -2,14 +2,14 @@
 
 .crcSection {
   background-color: #f9f9f9;
-  padding: 40px 20px;
+  padding: 20px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   border-bottom: 1px solid #ccc;
   h2 {
     color: #000;
     font-size: 1.8rem;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     text-align: center;
     span{
      color: #a43853;
@@ -35,7 +35,7 @@
 
 .placementsSection {
   text-align: center;
-  margin: 50px 0 100px 0;
+  margin: 20px 0;
 }
 .placementsTitle {
   font-size: 1.6rem;
@@ -51,15 +51,15 @@
 .placementsDesc {
   color: #888;
   font-size: 1.05rem;
-  margin-bottom: 32px;
+  margin-bottom: 15px;
 }
 
 .placementsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 20px;
   justify-content: center;
-  margin: 40px auto 0;
+  margin: 15px auto 0;
   max-width: 900px;
 }
 
@@ -107,7 +107,7 @@
   }
 
   .placementsSection {
-    margin: 60px 20px;
+    margin: 20px 20px;
   }
 
   .placementsTitle {
@@ -151,7 +151,7 @@
 
 @media(max-width:480px){
   .placementsSection {
-    margin: 40px 15px;
+    margin: 20px 15px;
   }
 
   .placementsTitle {

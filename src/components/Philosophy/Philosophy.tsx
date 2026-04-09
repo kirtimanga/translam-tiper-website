@@ -45,8 +45,8 @@ function Philosophy() {
           />
            <div className={styles.signatureBlock}>
                         
-                                    <img 
-                                        src="http://72.60.222.154:4000/uploads/prashant-sir.jpeg"
+                                    <img
+                                        src="/images/chairman.jpg"
                                         alt="chairman"
                                         style={{
                                             width: '200px',
