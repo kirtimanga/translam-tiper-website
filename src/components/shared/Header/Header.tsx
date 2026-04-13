@@ -8,6 +8,7 @@ import { ugProgram } from '@/app/apiData/ugProgram';
 import { diplomaProgram } from '@/app/apiData/diplomaProgram';
 import Marquee from 'react-fast-marquee';
 import { usePathname } from 'next/navigation';
+import AdmissionEnquiryPopup from '../AdmissionEnquiryPopup/AdmissionEnquiryPopup';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,6 +16,7 @@ function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null); // for multi-level
   const [shortNews, setShortNews] = useState<string[]>([]);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
 
@@ -153,22 +155,24 @@ function Header() {
                   ))}
                 </ul>
               </li>
-              <li className={pathname === '/placement' ? styles.active : ''}><Link href="/placement">Placements</Link></li>
+              <li><Link href="https://translam.com/placement" target="_blank" rel="noopener noreferrer">Placements</Link></li>
               <li className={pathname === '/departments' ? styles.active : ''}><Link href="/departments">Departments</Link></li>
               <li className={pathname === '/documents' ? styles.active : ''}><Link href="/documents">Documents</Link></li>
               <li className={pathname === '/events' ? styles.active : ''}><Link href="https://www.translam.com/events" target="_blank">Events</Link></li>
               <li className={pathname === '/contact' ? styles.active : ''}><Link href="/contact">Contact Us</Link></li>
+              <li><Link href="https://translam.com/" target="_blank" rel="noopener noreferrer">Group Website</Link></li>
             </ul>
 
-              <div className={styles.loginBtnContainer}>          
-              <button className={styles.loginBtn}>Login</button>
+              <div className={styles.loginBtnContainer}>
+              <button className={styles.loginBtn} onClick={() => setEnquiryOpen(true)}>Admission Enquiry</button>
               </div>
 
           </nav>
 
-          <button className={styles.loginBtn}>Login</button>
+          <button className={styles.loginBtn} onClick={() => setEnquiryOpen(true)}>Admission Enquiry</button>
         </div>
       </div>
+      <AdmissionEnquiryPopup open={enquiryOpen} onClose={() => setEnquiryOpen(false)} />
     </header>
   );
 }

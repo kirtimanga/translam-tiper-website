@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   padding: 10px 20px 10px 20px;
   position: sticky;
   top: 0;
@@ -26,7 +27,13 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #111;
-  width: 280px;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
 }
 
 .hamburger {
@@ -62,18 +69,25 @@
 
 .nav ul {
   display: flex;
-  gap: 22px;
+  gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.nav ul li {
+  white-space: nowrap;
 }
 
 .nav ul li a {
   text-decoration: none;
   color: #8a5a66;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .nav ul li a:hover {
@@ -85,10 +99,12 @@
   color: #fff;
   border: none;
   border-radius: 20px;
-  padding: 10px 32px;
-  font-size: 1rem;
+  padding: 9px 18px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: background 0.2s;
 }
@@ -111,8 +127,9 @@
 
 .dropdown {
   position: relative;
-  font-size: 14px;
+  font-size: 13px;
   top: 2px;
+  white-space: nowrap;
   .dropdownToggle {
     cursor: pointer;
     display: block;

@@ -6,10 +6,21 @@ import apiFetch from '@/utils/apiFetch';
 interface AdmissionEnquiryPopupProps {
   autoOpen?: boolean;
   autoOpenDelay?: number; // ms delay before auto-opening
+  open?: boolean;
+  onClose?: () => void;
 }
 
-function AdmissionEnquiryPopup({ autoOpen = false, autoOpenDelay = 2000 }: AdmissionEnquiryPopupProps) {
-  const [isOpen, setIsOpen] = useState(false);
+function AdmissionEnquiryPopup({ autoOpen = false, autoOpenDelay = 2000, open, onClose }: AdmissionEnquiryPopupProps) {
+  const isControlled = open !== undefined;
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isOpen = isControlled ? open : internalOpen;
+  const setIsOpen = (val: boolean) => {
+    if (isControlled) {
+      if (!val) onClose?.();
+    } else {
+      setInternalOpen(val);
+    }
+  };
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
