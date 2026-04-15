@@ -5,6 +5,7 @@ import styles from './Placement.module.scss'
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import { usePlacement } from '@/contexts/PlacementContext';
+import { sanitizeRichHtml } from '@/utils/sanitizeHtml';
 
 
 function fadeIn(delay = 0) {
@@ -24,15 +25,15 @@ function Placement() {
             <section className={styles.crcSection}>
                 <div className="container">
                     <h2>{data.crcTitle.replace('(CRC)', '')} <span>(CRC)</span></h2>
-                    <div dangerouslySetInnerHTML={{ __html: data.crcDescription }} />
-                    <div dangerouslySetInnerHTML={{ __html: data.crcContent }} />
+                    <div dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(data.crcDescription) }} />
+                    <div dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(data.crcContent) }} />
                 </div>
             </section>
 
             <section className={styles.crcSection}>
                 <div className="container">
                     <h2>{data.trainingTitle}</h2>
-                    <div dangerouslySetInnerHTML={{ __html: data.trainingDescription }} />
+                    <div dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(data.trainingDescription) }} />
                     
                     {data.trainingDescription.includes('customized training programs') && (
                         <p>

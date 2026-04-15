@@ -14,6 +14,7 @@ import { useWhyChooseUs } from '@/contexts/WhyChooseUsContext';
 import { useTestimonial } from '@/contexts/TestimonialContext';
 import { useOutstandingPlacements } from '@/contexts/OutstandingPlacementsContext';
 import AdmissionEnquiryPopup from '../shared/AdmissionEnquiryPopup/AdmissionEnquiryPopup';
+import { sanitizeRichHtml } from '@/utils/sanitizeHtml';
 
 function fadeIn(delay = 0) {
   return {
@@ -208,7 +209,7 @@ function Home() {
             )}</h2>
             <div 
               className={styles.successDesc}
-              dangerouslySetInnerHTML={{ __html: ourSuccessData.description }}
+              dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(ourSuccessData.description) }}
             />
             <div className={styles.statsRow}>
               <div className={styles.statBox}>
@@ -253,7 +254,7 @@ function Home() {
                 )}</h2>
                 <div 
                   className={styles.recruitersDesc}
-                  dangerouslySetInnerHTML={{ __html: ourRecruitersData.description }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(ourRecruitersData.description) }}
                 />
                 <div className={styles.recruitersOverview}>
                   <div className={styles.recruitersStatCard}>
@@ -306,7 +307,7 @@ function Home() {
               transition={{ duration: 0.7 }}
             >
               <h3>{ourRecruitersData.callToAction.title}</h3>
-              <div dangerouslySetInnerHTML={{ __html: ourRecruitersData.callToAction.description }} />
+              <div dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(ourRecruitersData.callToAction.description) }} />
               <motion.button
                 className={styles.placementBtn}
                 whileHover={{ scale: 1.05 }}
@@ -386,7 +387,7 @@ function Home() {
                 <div className={styles.whyChooseText}>
                   <div 
                     style={{ textAlign: 'center', marginBottom: '10px', fontSize: '18px', color: '#6b7280' }}
-                    dangerouslySetInnerHTML={{ __html: whyChooseUsData.description }}
+                    dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(whyChooseUsData.description) }}
                   />
                 </div>
               )}
@@ -429,32 +430,34 @@ function Home() {
         </motion.section>
 
         {/* Placements Section */}
-        <motion.section className={styles.placementsSection} {...fadeIn(0.5)}>
-          <div className='container'>
-            <h2 className={styles.placementsTitle}>{placementsData?.title?.split(' ').map((word, index) => {
-              if (word === 'Outstanding') return <span key={index}>{word}</span>;
-              if (word === 'Placements') return <span key={index}> {word}</span>;
-              return word + ' ';
-            }) || 'Outstanding Placements'}</h2>
-            <div className={styles.placementsDesc} dangerouslySetInnerHTML={{ __html: placementsData?.description || '' }}></div>
-            <div className={styles.placementsGrid}>
-              {getActivePlacements && getActivePlacements().map((placement) => (
-                <div className={styles.placementCard} key={placement.id}>
-                  <Image
-                    src={placement.image}
-                    alt={placement.name}
-                    width={300}
-                    height={300}
-                    priority
-                    className={styles.placementImg}
-                  />
-                  <div className={styles.placementName}>{placement.name}</div>
-                  <div className={styles.placementCompany}>{placement.company}</div>
-                </div>
-              ))}
+        {getActivePlacements && getActivePlacements().length > 0 && (
+          <motion.section className={styles.placementsSection} {...fadeIn(0.5)}>
+            <div className='container'>
+              <h2 className={styles.placementsTitle}>{placementsData?.title?.split(' ').map((word, index) => {
+                if (word === 'Outstanding') return <span key={index}>{word}</span>;
+                if (word === 'Placements') return <span key={index}> {word}</span>;
+                return word + ' ';
+              }) || 'Outstanding Placements'}</h2>
+              <div className={styles.placementsDesc} dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(placementsData?.description) }}></div>
+              <div className={styles.placementsGrid}>
+                {getActivePlacements().map((placement) => (
+                  <div className={styles.placementCard} key={placement.id}>
+                    <Image
+                      src={placement.image}
+                      alt={placement.name}
+                      width={300}
+                      height={300}
+                      priority
+                      className={styles.placementImg}
+                    />
+                    <div className={styles.placementName}>{placement.name}</div>
+                    <div className={styles.placementCompany}>{placement.company}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.section>
+          </motion.section>
+        )}
 
         {/* Tools For Teachers Section */}
         <motion.section {...fadeIn(0.6)}>

@@ -4,6 +4,7 @@ import { BASE_URL } from '../../utils/baseUrl';
 import apiFetch from '@/utils/apiFetch';
 import styles from './Admission.module.scss';
 import CommonBanner from '../CommonSection/CommonBanner';
+import { sanitizeRichHtml } from '@/utils/sanitizeHtml';
 
 interface AdmissionData {
   id: number;
@@ -132,7 +133,7 @@ const Admission = () => {
         <div className="container">
           {admissionData?.content ? (
             <div 
-              dangerouslySetInnerHTML={{ __html: admissionData.content }}
+              dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(admissionData.content) }}
               className={styles.admissionContent}
             />
           ) : (

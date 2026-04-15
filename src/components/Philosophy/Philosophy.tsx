@@ -3,6 +3,7 @@ import React from 'react'
 import CommonBanner from '../CommonSection/CommonBanner'
 import styles from './Philosophy.module.scss'
 import { usePhilosophy } from '@/contexts/PhilosophyContext'
+import { sanitizeRichHtml } from '@/utils/sanitizeHtml'
 
 function Philosophy() {
   const { philosophyData } = usePhilosophy();
@@ -41,7 +42,7 @@ function Philosophy() {
           {/* ✅ Render HTML Content */}
           <div 
             className={styles.content}
-            dangerouslySetInnerHTML={{ __html: philosophyData.content }}
+            dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(philosophyData.content) }}
           />
            <div className={styles.signatureBlock}>
                         

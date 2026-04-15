@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './About.module.scss';
 import CommonBanner from '../CommonSection/CommonBanner';
 import { useAboutGroup } from '@/contexts/AboutGroupContext';
+import { sanitizeRichHtml } from '@/utils/sanitizeHtml';
 
 function About() {
   const { aboutGroupData, isLoading } = useAboutGroup();
@@ -63,9 +64,9 @@ function About() {
             <div className={styles.content}>
               <h3>{item.title}</h3>
               
-              <div dangerouslySetInnerHTML={{ __html: item.content1 }} />
-              {item.content2 && <div dangerouslySetInnerHTML={{ __html: item.content2 }} />}
-              {item.content3 && <div dangerouslySetInnerHTML={{ __html: item.content3 }} />}
+              <div dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(item.content1) }} />
+              {item.content2 && <div dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(item.content2) }} />}
+              {item.content3 && <div dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(item.content3) }} />}
             </div>
           </div>
         ))}

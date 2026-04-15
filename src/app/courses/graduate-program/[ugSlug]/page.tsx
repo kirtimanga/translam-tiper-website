@@ -67,6 +67,21 @@ export default function UgProgramDetail(props: unknown) {
                 ))}
               </ul>
 
+              {course.specializations && course.specializations.length > 0 && (
+                <>
+                  <h3 className="text-xl font-semibold text-blue-800 mt-4 mb-2">Specializations Offered:</h3>
+                  <p className="text-gray-600 mb-4">
+                    We offer M.Pharm in the following specializations, allowing students to pursue advanced study and research in their chosen area of pharmaceutical science:
+                  </p>
+                  {course.specializations.map((spec, i) => (
+                    <div key={i} className="mb-4">
+                      <h4 className="text-lg font-semibold text-blue-700 mb-1">{spec.title}</h4>
+                      <p className="text-gray-600">{spec.description}</p>
+                    </div>
+                  ))}
+                </>
+              )}
+
               <h3 className="text-xl font-semibold text-blue-800 mt-4 mb-2">Program Outcome:</h3>
               <p className="text-gray-600">{course.outcome}</p>
             </div>

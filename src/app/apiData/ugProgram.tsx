@@ -22,6 +22,28 @@ export const ugProgram = [
   ],
   outcome:
     'Graduates are prepared for careers in research and development, regulatory affairs, academia, clinical research, and leadership positions in the pharmaceutical industry. They can also pursue doctoral studies (Ph.D.) for advanced research opportunities.',
+  specializations: [
+    {
+      title: 'Pharmacology',
+      description:
+        'This specialization focuses on the study of drug action, mechanisms, and their effects on living systems. Students gain in-depth knowledge of preclinical and clinical pharmacology, toxicology, experimental techniques, and the evaluation of new drug molecules — preparing them for careers in drug discovery, clinical research, and regulatory sciences.'
+    },
+    {
+      title: 'Pharmaceutical Chemistry',
+      description:
+        'Pharmaceutical Chemistry combines organic, medicinal, and analytical chemistry to design, synthesize, and evaluate therapeutic agents. The program emphasizes drug design, structure–activity relationships, synthesis of novel molecules, and modern analytical techniques used in quality control and pharmaceutical research & development.'
+    },
+    {
+      title: 'Pharmacognosy',
+      description:
+        'Pharmacognosy deals with naturally derived drugs from plants, microbes, and marine sources. Students explore phytochemistry, herbal drug standardization, isolation of bioactive compounds, and the development of nutraceuticals and herbal formulations — bridging traditional knowledge with modern scientific validation.'
+    },
+    {
+      title: 'Pharmaceutics',
+      description:
+        'Pharmaceutics focuses on the science of dosage form design, drug delivery systems, and formulation development. The curriculum covers novel drug delivery technologies, biopharmaceutics, pharmacokinetics, and industrial pharmacy, training students to develop safe, effective, and patient-friendly pharmaceutical products.'
+    }
+  ],
   image: '/images/event8.png'
 },
 {

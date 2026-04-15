@@ -5,6 +5,7 @@ import apiFetch from '@/utils/apiFetch';
 import Image from 'next/image';
 import styles from './Events.module.scss';
 import CommonBanner from '../CommonSection/CommonBanner';
+import { sanitizeRichHtml } from '@/utils/sanitizeHtml';
 
 interface EventImage {
   id?: string;
@@ -127,9 +128,9 @@ function EventsGallery() {
           <div className={styles.eventContent}>
             <h2>Events Gallery</h2>
             <div 
-              dangerouslySetInnerHTML={{ 
-                __html: eventsData?.content || '<p>Explore our latest events and activities through our gallery.</p>' 
-              }} 
+              dangerouslySetInnerHTML={{
+                __html: sanitizeRichHtml(eventsData?.content) || '<p>Explore our latest events and activities through our gallery.</p>'
+              }}
             />
           </div>
 
